@@ -15,6 +15,12 @@ h1 {
     font-size: 100%;
 }
 
-a { color: #29f; }
-a:hover { color: #4af; }
+a {
+    color: #29f;
+    text-decoration: none;
+}
+a:hover {
+    color: #4af;
+    text-decoration: underline;
+}
 
