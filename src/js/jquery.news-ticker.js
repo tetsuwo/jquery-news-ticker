@@ -140,7 +140,8 @@
             var pos = $target.position();
 
             if (privates.targetPoint > pos.left) {
-                self.animateCallback();
+                $target.css('left', privates.targetPoint - 100);
+                window.setTimeout(self.animateCallback, settings.interval);
                 return;
             }
 
@@ -177,7 +178,13 @@
                 case 'scroll':
                     var addWidth = parseInt($root.css('paddingLeft')) + parseInt($root.css('paddingRight'));
                     $target.css('left', $root.width() + addWidth).show();
-                    privates.scrollFunc($target);
+
+                    $target.animate(
+                        { left: 0 },
+                        function() {
+                            window.setTimeout(privates.scrollFunc, 1000);
+                        }
+                    );
                     break;
 
                 default:
