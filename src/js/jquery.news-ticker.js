@@ -58,9 +58,9 @@
          * @return int
          */
         this.setPointer = function(id) {
-            self.debug('setPointer = ' + id);
+            $self.debug('setPointer = ' + id);
             pointer = id;
-            return self.getPointer();
+            return $self.getPointer();
         };
 
         /**
@@ -69,7 +69,7 @@
          * @return int
          */
         this.getPointer = function() {
-            self.debug('getPointer = ' + pointer);
+            $self.debug('getPointer = ' + pointer);
             return pointer;
         };
 
@@ -90,7 +90,7 @@
          * @return object
          */
         this.getItems = function() {
-            return $root.find(self.getClassName('item'));
+            return $root.find($self.getClassName('item'));
         };
 
         /**
@@ -100,7 +100,7 @@
          * @return object
          */
         this.getItem = function(idx) {
-            return $root.find(self.getClassName('item')).eq(idx);
+            return $root.find($self.getClassName('item')).eq(idx);
         };
 
         /**
@@ -109,7 +109,7 @@
          * @return object
          */
         this.getCurrentItem = function() {
-            return self.getItem(pointer);
+            return $self.getItem(pointer);
         };
 
         /**
@@ -121,12 +121,12 @@
         this.animateCallback = function() {
             pointer++;
 
-            if (self.getItems().length <= pointer) {
+            if ($self.getItems().length <= pointer) {
                 pointer = 0;
             }
 
-            self.setPointer(pointer);
-            self.start();
+            $self.setPointer(pointer);
+            $self.start();
         };
 
         /**
@@ -136,12 +136,12 @@
          * @return none
          */
         privates.scrollFunc = function() {
-            var $target = self.getCurrentItem();
+            var $target = $self.getCurrentItem();
             var pos = $target.position();
 
             if (privates.targetPoint > pos.left) {
                 $target.css('left', privates.targetPoint - 100);
-                window.setTimeout(self.animateCallback, settings.interval);
+                window.setTimeout($self.animateCallback, settings.interval);
                 return;
             }
 
@@ -159,16 +159,16 @@
             first = false;
 
             // hide all & remove focus
-            $root.find(self.getClassName('item-focus'))
-                .removeClass(self.getClassName('item-focus', true))
+            $root.find($self.getClassName('item-focus'))
+                .removeClass($self.getClassName('item-focus', true))
                 .hide();
 
             // show one
-            var $target = self.getItem(idx);
-            $target.addClass(self.getClassName('item-focus', true));
+            var $target = $self.getItem(idx);
+            $target.addClass($self.getClassName('item-focus', true));
 
-            self.debug('root.width = ' + $root.width());
-            self.debug('target.width = ' + $target.width());
+            $self.debug('root.width = ' + $root.width());
+            $self.debug('target.width = ' + $target.width());
 
             var isLong = $root.width() < $target.width();
             privates.targetPoint = isLong ? $root.width() - $target.width() : 0;
@@ -188,7 +188,7 @@
                     break;
 
                 default:
-                    $target.fadeIn(self.animateCallback);
+                    $target.fadeIn($self.animateCallback);
                     break;
             }
         };
@@ -199,7 +199,7 @@
          * @return none
          */
         this.start = function() {
-            self.setItem(pointer);
+            $self.setItem(pointer);
         };
 
         /**
@@ -208,15 +208,15 @@
          * @return none
          */
         this.tick = function() {
-            var $items = self.getItems();
-            self.debug($items.length);
+            var $items = $self.getItems();
+            $self.debug($items.length);
 
             if (first) {
-                return self.start();
+                return $self.start();
             }
 
             window.setTimeout(
-                self.start,
+                $self.start,
                 settings.interval
             );
         };
@@ -225,18 +225,18 @@
         this.debug(settings);
 
         // fix reserved-variable
-        self = this;
+        $self = this;
 
         $(function() {
-            var $items = self.getItems();
+            var $items = $self.getItems();
 
             // if no item, add new item
             if ($items.length < 1) {
-                self.debug('Not Found News');
+                $self.debug('Not Found News');
                 return;
             }
 
-            self.tick();
+            $self.tick();
         });
 
         return this;
