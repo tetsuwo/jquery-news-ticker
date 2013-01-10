@@ -1,14 +1,11 @@
 /*!
- * jQuery News Ticket Plug-In
- * http://tetsuwo.tumblr.com/
+ * jQuery News Ticker Plug-In
+ * http://github.com/tetsuwo/jquery-news-ticker
  *
  * Copyright 2012, Tetsuwo OISHI
  * Dual licensed under the MIT license.
- *
- * Date: 2012-11-03
  */
-
-;(function($) {
+(function($) {
     $.fn.newsTicker = function(options) {
         var
         $root         = $(this),
@@ -20,9 +17,6 @@
         // extended setting object
         settings = $.extend({
             debug           : false,
-            itemTitleChars  : 10,
-            minItem         : 0,
-            maxItem         : 10,
             scrollStep      : 5,
             scrollSecond    : 0.07,
             interval        : 2000,
