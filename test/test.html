@@ -2,11 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>jQuery News Ticker</title>
-        <link rel="stylesheet" href="../src/css/style.css">
-        <link rel="stylesheet" href="style.css">
+        <title>Test Runner</title>
+        <link rel="stylesheet" href="lib/jasmine-1.2.0/jasmine.css" />
+        <script src="lib/jasmine-1.2.0/jasmine.js"></script>
+        <script src="lib/jasmine-1.2.0/jasmine-html.js"></script>
+        <script src="lib/jasmine-1.2.0/jasmine-console.js"></script>
+        <script src="spec/SpecHelper.js"></script>
+        <script src="jasmine-prepare.js"></script>
+        <!-- test target code... -->
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="../src/js/jquery.news-ticker.min.js"></script>
+        <link rel="stylesheet" href="../src/css/style.css">
+        <script src="../src/js/jquery.news-ticker.js"></script>
     </head>
     <body>
         <div style="width: 300px; margin: 0 auto;">
@@ -23,17 +30,9 @@
                     <li class="jq-news-ticker-item"><a href="#">スピード違反で罰金の◯◯◯◯、「財産がない」と主張した弁護士をクビに…判決を受け入れへ</a></li>
                 </ul>
             </div>
-        </div>    </head>
-        
-        <script>
-        
-            $().ready(function() {
-                $ticker = $('#news-ticker').newsTicker({
-                      debug: true 
-                    , animationType: 'scroll'
-                });
-            });
-        
-        </script>
+        </div>
+
+        <!-- below test code... -->
+        <script src="test.js"></script>
     </body>
 </html>
