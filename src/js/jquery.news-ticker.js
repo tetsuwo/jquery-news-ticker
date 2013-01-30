@@ -233,6 +233,6 @@
             $self.tick();
         });
 
-        return this;
+        return $self;
     };
 })(jQuery);

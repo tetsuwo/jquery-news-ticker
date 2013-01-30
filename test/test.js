@@ -1,18 +1,49 @@
 
 var $ticker1 = $('#news-ticker-1').newsTicker({
     animationType: 'scroll',
+    classNamePrefix: 'jq-news-hoge-',
     debug: true
 });
-console.log($ticker1);
+
 describe('jQuery.newsTicker - 1', function() {
+    //console.log($ticker1);
+
     it('getConfg', function() {
         expect($ticker1.getConfig().debug).toBeTruthy();
         expect($ticker1.getConfig().scrollStep).toEqual(5);
         expect($ticker1.getConfig().scrollSecond).toEqual(0.07);
         expect($ticker1.getConfig().interval).toEqual(2000);
         expect($ticker1.getConfig().animationType).toEqual('scroll');
-        expect($ticker1.getConfig().classNamePrefix).toEqual('jq-news-ticker-');
+        expect($ticker1.getConfig().classNamePrefix).toEqual('jq-news-hoge-');
     });
+
+    it('getClassName', function() {
+        expect($ticker1.getClassName('', true)).toEqual('jq-news-hoge-');
+        expect($ticker1.getClassName('')).toEqual('.jq-news-hoge-');
+        expect($ticker1.getClassName('', false)).toEqual('.jq-news-hoge-');
+    });
+
+    it('getItems', function() {
+        //expect($ticker1.getItems().length).toEqual(6);
+    });
+
+    it('getItem', function() {
+        //var $item = $ticker1.getItem(0);
+        //expect($item.text()).toEqual('【コラム】◯◯◯◯が語る、監督交代と△△△△△△△の変化');
+    });
+
+    it('getPointer', function() {
+        //console.log($ticker1.getPointer());
+        expect($ticker1.getPointer()).toEqual(0);
+    });
+
+    it('setPointer', function() {
+        //console.log($ticker1.getPointer());
+        $ticker1.setPointer(5);
+        expect($ticker1.getPointer()).toEqual(5);
+        $ticker1.tick();
+    });
+
 });
 
 
