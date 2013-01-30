@@ -16,24 +16,6 @@ describe('jQuery.newsTicker - 1', function() {
 });
 
 
-/*var $ticker2 = $('#news-ticker-2').newsTicker({
-    animationType: 'scroll',
-    interval: 3000,
-    debug: true
-});
-console.log($ticker2);
-describe('jQuery.newsTicker - 2', function() {
-    it('getConfg', function() {
-        expect($ticker2.getConfig().debug).toBeTruthy();
-        expect($ticker2.getConfig().scrollStep).toEqual(5);
-        expect($ticker2.getConfig().scrollSecond).toEqual(0.07);
-        expect($ticker2.getConfig().interval).toEqual(3000);
-        expect($ticker2.getConfig().animationType).toEqual('scroll');
-        expect($ticker2.getConfig().classNamePrefix).toEqual('jq-news-ticker-');
-    });
-});*/
-
-
 /*
 var hoge = function() {
     return a + 1;

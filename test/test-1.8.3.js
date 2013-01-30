@@ -16,7 +16,7 @@ describe('jQuery.newsTicker - 1', function() {
 });
 
 
-/*var $ticker2 = $('#news-ticker-2').newsTicker({
+var $ticker2 = $('#news-ticker-2').newsTicker({
     animationType: 'scroll',
     interval: 3000,
     debug: true
@@ -31,7 +31,7 @@ describe('jQuery.newsTicker - 2', function() {
         expect($ticker2.getConfig().animationType).toEqual('scroll');
         expect($ticker2.getConfig().classNamePrefix).toEqual('jq-news-ticker-');
     });
-});*/
+});
 
 
 /*
